@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import SearchIcon from '@mui/icons-material/Search';
 import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import SportsVolleyballOutlinedIcon from '@mui/icons-material/SportsVolleyballOutlined';
 
 const Container = styled.div`
     height: 65px;
@@ -41,7 +42,9 @@ const Right = styled.div`
 `;
 const Center = styled.div`
     flex: 1;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 const Logo = styled.h1`
     font-weight: bold;
@@ -64,6 +67,7 @@ const Navbar = () => {
                     </SearchContainer>
                 </Left>
                 <Center>
+                    <SportsVolleyballOutlinedIcon fontSize="large"/>
                     <Logo>Everything Volleyball</Logo>
                 </Center>
                 <Right>
