@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
-import { ScrollItems } from '../../../data';
+import { ScrollItems } from '../../data';
 
 const Container = styled.div`
     width: 100%;
