@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
+import { ScrollItems } from '../../../data';
 
 const Container = styled.div`
     width: 100%;
@@ -26,17 +27,20 @@ const Arrow = styled.div`
     margin: auto;
     cursor: pointer;
     opacity: 0.9;
+    z-index: 2;
 `
 const Wrapper = styled.div`
     height: 100%;
     display: flex;
+    transition: all 1.5s ease;
+    transform: translate(${props=> props.scrollIndex * -100}vw);
 `
 const Scroller = styled.div`
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
-
+    background-color: #${props => props.bg};
 `;
 
 const Image = styled.img`
@@ -49,9 +53,9 @@ const ImageContainer = styled.div`
     flex: 1;
 `;
 
-const InfoContainer = styled.div`
+const InformationContainer = styled.div`
     flex: 1;
-    padding: 50px;
+    padding: 50px 25px;
 `;
 
 const Title = styled.h1`
@@ -70,47 +74,37 @@ const Button = styled.button`
 `;
 
 const Scroll = () => {
+    const [scrollIndex, setScrollIndex] = useState(0);
+    const handleClick = (direction) => {
+        if(direction === "left"){
+            setScrollIndex(scrollIndex > 0 ? scrollIndex -1 : 2)
+        } else {
+            setScrollIndex(scrollIndex < 2 ? scrollIndex +1 : 0)
+        }
+    };
+
     return (
         <Container>
-            <Arrow direction="left">
+            <Arrow direction="left" onClick={() => handleClick("left")}>
                 <ArrowLeftOutlinedIcon />
             </Arrow>
-            <Wrapper>
-                <Scroller>
-                    <ImageContainer>
-                        <Image src="https://images.allvolleyball.com/images/large/Custom_Fuze_AVBSITE_ProductTemplate_MSL_Tribe-2.jpg"/>
-                    </ImageContainer>
-                    <InfoContainer>
-                        <Title>Winter Blowout Sale!</Title>
-                        <Description>Don't Miss the Newest Products!</Description>
-                        <Button>Shop Now</Button>
-                    </InfoContainer>
-                    <ImageContainer></ImageContainer>
-                </Scroller>
-                <Scroller>
-                    <ImageContainer>
-                        <Image src="https://images.allvolleyball.com/images/large/Custom_Fuze_AVBSITE_ProductTemplate_MSL_Tribe-2.jpg"/>
-                    </ImageContainer>
-                    <InfoContainer>
-                        <Title>Winter Blowout Sale!</Title>
-                        <Description>Don't Miss the Newest Products!</Description>
-                        <Button>Shop Now</Button>
-                    </InfoContainer>
-                    <ImageContainer></ImageContainer>
-                </Scroller>
-                <Scroller>
-                    <ImageContainer>
-                        <Image src="https://images.allvolleyball.com/images/large/Custom_Fuze_AVBSITE_ProductTemplate_MSL_Tribe-2.jpg"/>
-                    </ImageContainer>
-                    <InfoContainer>
-                        <Title>Winter Blowout Sale!</Title>
-                        <Description>Don't Miss the Newest Products!</Description>
-                        <Button>Shop Now</Button>
-                    </InfoContainer>
-                    <ImageContainer></ImageContainer>
-                </Scroller>
+            <Wrapper scrollIndex={scrollIndex}>
+                {ScrollItems.map(item=>(
+                    <Scroller bg={item.bg}>
+                        <ImageContainer>
+                            <Image src={item.img}/>
+                        </ImageContainer>
+                        <InformationContainer>
+                            <Title>{item.title}</Title>
+                            <Description>{item.description}</Description>
+                            <Button>Shop Now</Button>
+                        </InformationContainer>
+                        <ImageContainer></ImageContainer>
+                    </Scroller>
+                ))}
+                
             </Wrapper>
-            <Arrow direction="right">
+            <Arrow direction="right" onClick={() => handleClick("right")}>
                 <ArrowRightOutlinedIcon />
             </Arrow>
             
