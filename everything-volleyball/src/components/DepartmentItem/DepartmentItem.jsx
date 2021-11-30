@@ -13,7 +13,6 @@ const Image = styled.img`
 
 `
 const Info = styled.div`
-    opacity: 0;
     position:absolute;
     top: 0;
     left: 0;
