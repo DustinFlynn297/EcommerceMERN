@@ -2,6 +2,7 @@ import React from 'react'
 import Broadcast from '../Broadcast/Broadcast'
 import Bulletin from '../Bulletin/Bulletin'
 import Department from '../Department/Department'
+import { Footer } from '../Footer/Footer'
 import Merchandise from '../Merchandise/Merchandise'
 import Navbar from '../Navbar/Navbar'
 import Scroll from '../Scroll/Scroll'
@@ -18,6 +19,7 @@ const Home = () => {
             <Department />
             <Merchandise />
             <Bulletin />
+            <Footer />
         </div>
     )
 }
