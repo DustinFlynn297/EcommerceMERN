@@ -90,7 +90,7 @@ const Scroll = () => {
             </Arrow>
             <Wrapper scrollIndex={scrollIndex}>
                 {ScrollItems.map(item=>(
-                    <Scroller bg={item.bg}>
+                    <Scroller bg={item.bg} key={item.id}>
                         <ImageContainer>
                             <Image src={item.img}/>
                         </ImageContainer>

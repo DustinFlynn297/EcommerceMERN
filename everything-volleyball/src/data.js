@@ -39,3 +39,49 @@ export const ScrollItems = [
         title: "Jerseys"
      }
  ];
+
+
+
+
+
+
+
+
+export const BestSellers = [
+    {
+        id: 1,
+        img: "https://i.imgur.com/Dd2em3c.jpg",
+    },
+    {
+        id: 2,
+        img: "https://i.imgur.com/Ocx54tR.jpg",
+    },
+    {
+        id: 3,
+        img: "https://i.imgur.com/VtXQHvP.jpg",
+    },
+    {
+        id: 4,
+        img: "https://i.imgur.com/34srgVr.jpg",
+    },
+    {
+        id: 5,
+        img: "https://i.imgur.com/dfeYJvF.jpg",
+    },
+    {
+        id: 6,
+        img: "https://i.imgur.com/A6sY8Pi.jpg",
+    },
+    {
+        id: 7,
+        img: "https://i.imgur.com/XiWN1UP.jpg",
+    },
+    {
+        id: 8,
+        img: "https://i.imgur.com/ritJrWb.jpg",
+    },
+    {
+        id: 9,
+        img: "https://i.imgur.com/ws1jlDo.jpg",
+    },
+]
