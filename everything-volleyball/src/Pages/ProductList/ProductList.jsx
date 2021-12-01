@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Broadcast from '../../components/Broadcast/Broadcast'
 import Bulletin from '../../components/Bulletin/Bulletin'
-import { Footer } from '../../components/Footer/Footer'
+import Footer from '../../components/Footer/Footer'
 import Merchandise from '../../components/Merchandise/Merchandise'
 import Navbar from '../../components/Navbar/Navbar'
 
@@ -31,7 +31,7 @@ const Select = styled.select`
 `
 
 const Option = styled.option`
-    
+
 `
 
 
