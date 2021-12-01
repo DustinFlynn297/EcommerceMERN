@@ -34,13 +34,13 @@ const Input = styled.input`
 const Button = styled.button`
     flex: 1;
     border: none;
-    background-color: #d037e4;
+    background-color: #3c4fa1;
 `
 
 const Bulletin = () => {
     return (
         <Container>
-            <Title>Communications</Title>
+            <Title>Newsletter</Title>
             <Description>Receive updates on the latest releases and biggest sales.</Description>
             <InputContainer>
                 <Input placeholder="Email"/>

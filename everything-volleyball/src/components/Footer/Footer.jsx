@@ -63,7 +63,7 @@ const ContactItem = styled.div`
     align-items: center;
 `
 const Payments = styled.img`
-    width: 25%;
+    width: 40%;
 `
 
 export const Footer = () => {
@@ -104,7 +104,7 @@ export const Footer = () => {
                 <ContactItem>
                     <EmailOutlinedIcon style={{marginRight:"11px"}}/>contact@everythingvolleyball.com
                 </ContactItem>
-                <Payments src="https://i.imgur.com/6gKR6Zi.jpg" />
+                <Payments src="https://i.imgur.com/yyJuYQI.jpg" />
             </Right>
         </Container>
     )
