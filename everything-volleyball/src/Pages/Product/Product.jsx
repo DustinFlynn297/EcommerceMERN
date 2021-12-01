@@ -6,12 +6,14 @@ import Broadcast from '../../components/Broadcast/Broadcast'
 import Bulletin from '../../components/Bulletin/Bulletin'
 import Footer from '../../components/Footer/Footer'
 import Navbar from '../../components/Navbar/Navbar'
+import { Mobile } from '../../responsive';
 
 const Container = styled.div``
 
 const Wrapper = styled.div`
     padding: 50px;
     display: flex;
+    ${Mobile({padding: "10px", flexDirection: "column"})}
 `
 const ImageContainer = styled.div`
     flex: 1;
@@ -19,12 +21,14 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
     width: 60%;
+    ${Mobile({width: "90%"})}
     
 `
 
 const InformationContainer = styled.div`
     flex: 1;
     padding: 0px 50px;
+    ${Mobile({padding: "10px"})}
 `
 
 const Title = styled.h1`
@@ -44,6 +48,7 @@ const FilterContainer = styled.div`
     width: 30%;
     display: flex;
     justify-content: space-between;
+    ${Mobile({width: "100%", padding: "8px 0px"})}
 `
 const FilterName = styled.span`
     font-size: 21px;
@@ -75,6 +80,7 @@ const AdditionContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    ${Mobile({width: "100%"})}
 `
 const NumberContainer = styled.div`
     display: flex;

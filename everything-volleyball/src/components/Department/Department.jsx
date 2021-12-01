@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 import { Categories } from "../../data"
+import { Mobile } from '../../responsive'
 import DepartmentItem from "../DepartmentItem/DepartmentItem"
 
 const Container = styled.div`
     display: flex;
     padding: 20px;
     justify-content: space-between;
+    ${Mobile({padding: "0px", flexDirection: "column"})}
 `
 
 const Department = () => {

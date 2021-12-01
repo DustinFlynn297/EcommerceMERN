@@ -4,17 +4,18 @@ import Footer from '../../components/Footer/Footer'
 import Navbar from '../../components/Navbar/Navbar'
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
+import { Mobile } from '../../responsive';
 
 const Container = styled.div`
     
 `
 const Wrapper = styled.div`
     padding: 20px;
+    ${Mobile({padding: "10px"})}
 `
 const Title = styled.h1`
     font-weight: 300;
     align-items: center;
-    justify-content: center;
 `
 const Top = styled.div`
     display: flex;
@@ -31,16 +32,17 @@ const TopButton = styled.button`
     color: ${(props)=>props.type === "filled" && "white"};
 `
 const TopTexts = styled.div`
+    ${Mobile({display: "none"})}
+`
+const TopText = styled.span`
     text-decoration: underline;
     cursor: pointer;
     margin: 0px 10px;
 `
-const TopText = styled.span`
-
-`
 const Bottom = styled.div`
     display: flex;
     justify-content: space-between;
+    ${Mobile({flexDirection: "column"})}
 `
 const Info = styled.div`
     flex: 3;
@@ -48,6 +50,7 @@ const Info = styled.div`
 const Product = styled.div`
     display: flex;
     justify-content: space-between;
+    ${Mobile({flexDirection: "column"})}
 `
 const ProductDetails = styled.div`
     flex: 2;
@@ -62,9 +65,6 @@ const Details = styled.div`
     flex-direction: column;
     justify-content: space-around;
 `
-const ProductName = styled.span`
-
-`
 const ProductId = styled.span`
 
 `
@@ -77,7 +77,7 @@ const ProductColor = styled.div`
     margin: 2px 2px;
 `
 const PriceDetails = styled.div`
-    flex: 2;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,10 +92,12 @@ const ProductAmountContainer = styled.div`
 const ProductAmount = styled.div`
     font-size: 24px;
     margin: 5px;
+    ${Mobile({margin: "5px 15px"})}
 `
 const ProductPrice = styled.div`
     font-size: 30px;
     font-weight: 250;
+    ${Mobile({marginBottom: "20px"})}
 `
 const Hr = styled.hr`
     background-color: #eee;
@@ -156,7 +158,7 @@ const ShoppingCart = () => {
                         <Product>
                             <ProductDetails>
                                 <Image src="https://i.imgur.com/VtXQHvP.jpg"/>
-                                <Details><b>Product:</b> Baden Volleyball</Details>
+                                <Details><b>Product:</b>Baden Volleyball</Details>
                                 <ProductId><b>ID:</b> 981531654</ProductId>
                                 <ProductColor color="red"/>
                                 <ProductColor color="blue"/>

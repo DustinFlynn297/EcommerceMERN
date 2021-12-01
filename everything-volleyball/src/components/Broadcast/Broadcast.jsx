@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
+import { Mobile } from '../../responsive'
 
 const Container = styled.div`
     height: 34px;
@@ -10,6 +11,7 @@ const Container = styled.div`
     justify-content: center;
     font-size: 20px;
     font-weight: 600;
+    ${Mobile({width: "100%"})}
 `
 
 const Broadcast = () => {

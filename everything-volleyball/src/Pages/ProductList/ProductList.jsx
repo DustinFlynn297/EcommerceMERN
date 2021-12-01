@@ -1,3 +1,4 @@
+import { flexbox } from '@mui/system'
 import React from 'react'
 import styled from 'styled-components'
 import Broadcast from '../../components/Broadcast/Broadcast'
@@ -5,6 +6,7 @@ import Bulletin from '../../components/Bulletin/Bulletin'
 import Footer from '../../components/Footer/Footer'
 import Merchandise from '../../components/Merchandise/Merchandise'
 import Navbar from '../../components/Navbar/Navbar'
+import { Mobile } from '../../responsive'
 
 const Container = styled.div`
 
@@ -19,15 +21,18 @@ const SelectFilterContainer = styled.div`
 `
 const Filter = styled.div`
     margin: 18px;
+    ${Mobile({width: "0px 18px", display: "flex", flexDirection: "column"})}
 `
 const FilterText = styled.span` 
     font-size: 20px;
     font-weight: 600;
     margin-right: 18px;
+    ${Mobile({marginRight: "0px"})}
 `
 const Select = styled.select` 
     padding: 10px;
     margin-right: 18px;
+    ${Mobile({margin: "10px 0px"})}
 `
 
 const Option = styled.option`
