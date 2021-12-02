@@ -7,7 +7,7 @@ import ShoppingCart from "./Pages/ShoppingCart/ShoppingCart";
 
 
 const App = () => {
-    return <ShoppingCart />
+    return <Product />
 };
 
 export default App;
