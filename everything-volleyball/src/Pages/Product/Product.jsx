@@ -1,12 +1,14 @@
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router';
 import styled from 'styled-components'
 import Broadcast from '../../components/Broadcast/Broadcast'
 import Bulletin from '../../components/Bulletin/Bulletin'
 import Footer from '../../components/Footer/Footer'
 import Navbar from '../../components/Navbar/Navbar'
 import { Mobile } from '../../responsive';
+import { publicRequest } from "../../requestMethods"
 
 const Container = styled.div``
 
@@ -110,27 +112,41 @@ const Button = styled.button`
 `
 
 const Product = () => {
+    const location = useLocation();
+    const id = location.pathname.split("/")[2];
+    const[product,setProduct] = useState({});
+
+    useEffect(() => {
+        const getProduct = async () => {
+          try {
+            const res = await publicRequest.get("/products/find/" + id);
+            setProduct(res.data);
+          } catch {}
+        };
+        getProduct();
+      }, [id]);
+      
+
     return (
         <Container>
             <Navbar />
             <Broadcast />
             <Wrapper>
                 <ImageContainer>
-                    <Image src="https://i.imgur.com/VtXQHvP.jpg" />
+                    <Image src={product.img} />
                 </ImageContainer>
                 <InformationContainer>
-                    <Title>Baden Perfection VX5E Volleyball</Title>
-                    <Description>Baden's top-of-the-line leather game ball. Top-grade, full-grain, hand-picked leather for a softer, more durable cover. Innovative tanning process for enhanced durability.
-
+                    <Title>{product.title}</Title>
+                    <Description>
+                        {product.description}
                     </Description>
-                    <Price>$64.95</Price>
+                    <Price>#{product.price}</Price>
                     <FilterContainer>
                         <Filter>
                             <FilterName>Color</FilterName>
-                            <FilterColor color="Green" />
-                            <FilterColor color="Red"/>
-                            <FilterColor color="Black"/>
-                            <FilterColor color="Grey"/>
+                            {product.color.map((c) => (
+                                <FilterColor color={c} key={c} />
+                            ))}
                         </Filter>
                         <Select>
                             <Option disabled selected>Qty</Option>

@@ -25,18 +25,21 @@ export const ScrollItems = [
      {
         id: 1,
         img: "https://i.imgur.com/cq9Qj8l.jpg",
-        title: "Volleyballs"     
+        title: "Volleyballs",
+        category: "volleyballs"     
         
      },
      {
         id: 2,
         img: "https://imgur.com/WfQKyVS.jpg",
-        title: "Shoes"
+        title: "Shoes",
+        category: "shoes"
      },
      {
         id: 3,
         img: "https://i.imgur.com/MIADEJC.jpg",
-        title: "Jerseys"
+        title: "Men's Jersey",
+        category: "men"
      }
  ];
 

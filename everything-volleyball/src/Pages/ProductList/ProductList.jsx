@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useLocation } from 'react-router'
 import styled from 'styled-components'
 import Broadcast from '../../components/Broadcast/Broadcast'
 import Bulletin from '../../components/Bulletin/Bulletin'
@@ -40,16 +41,28 @@ const Option = styled.option`
 
 
 const ProductList = () => {
+    const location = useLocation();
+    const category = location.pathname.split("/")[2];
+    const [filters, setFilters] = useState({});
+    const [sort, setSort] = useState("newest");
+
+    const handleFilters = (e) => {
+        const value = e.target.value;
+        setFilters({
+            ...filters,
+            [e.target.name] : value
+        })
+    };
     return (
         <Container>
             <Navbar />
             <Broadcast />
-            <Title>Men's</Title>
+            <Title>{category}</Title>
             <SelectFilterContainer>
                 <Filter>
                     <FilterText>Filter Merchandise:</FilterText>
-                    <Select>
-                        <Option disabled selected>
+                    <Select name="color"onChange={handleFilters}>
+                        <Option disabled >
                             Color
                         </Option>
                         <Option>White</Option>
@@ -57,9 +70,10 @@ const ProductList = () => {
                         <Option>Blue</Option>
                         <Option>Green</Option>
                         <Option>Yellow</Option>
+                        <Option>Red</Option>
                     </Select>
-                    <Select>
-                        <Option disabled selected>
+                    <Select name="size" onChange={handleFilters}>
+                        <Option disabled >
                             Size
                         </Option>
                         <Option>XS</Option>
@@ -72,17 +86,17 @@ const ProductList = () => {
                 </Filter>
                 <Filter>
                     <FilterText>Sort Merchandise:</FilterText>
-                    <Select>
-                        <Option selected>
+                    <Select onChange={e=>setSort(e.target.value)}>
+                        <Option value="most popular">
                             Most Popular
                         </Option>
-                        <Option>Price (ascending)</Option>
-                        <Option>Price (descending)</Option>                        
+                        <Option value="asc">Price (ascending)</Option>
+                        <Option value="desc">Price (descending)</Option>                        
                     </Select>
                 </Filter>
                 </SelectFilterContainer>
             <SelectFilterContainer></SelectFilterContainer>
-            <Merchandise/>
+            <Merchandise category={category} filters={filters} sort={sort}/>
             <Bulletin />
             <Footer />
         </Container>
