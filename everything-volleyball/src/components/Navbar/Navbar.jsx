@@ -1,97 +1,110 @@
-import React from 'react';
-import styled from 'styled-components';
 import SearchIcon from '@mui/icons-material/Search';
 import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import SportsVolleyballOutlinedIcon from '@mui/icons-material/SportsVolleyballOutlined';
-import { Mobile } from '../../responsive';
+import React from "react";
+import styled from "styled-components";
+import { Mobile } from "../../responsive";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
-    height: 65px;
-    display: flex;
-    ${Mobile({height: "50px"})}
-    
+  height: 60px;
+  ${Mobile({ height: "50px" })}
 `;
-const Wrapper = styled.div`
-    display:flex;
-    padding: 12px 22px;
-    align-items: center;
-    justify-content: space-between;
-    ${Mobile({padding: "10px 0px"})}
-`;
-const Left = styled.div`
-    flex: 1;
-    display: flex;
-    align-items: center;
-`;
-const Language = styled.span`
-    font-size: 15px;
-    cursor: pointer;
-    ${Mobile({display: "none"})}
-`;
-const SearchContainer = styled.div`
-    border: 0.6px solid lightgray;
-    display: flex;
-    align-items: center;
-    margin-left: 25px;
-    padding: 5px;
 
-`
+const Wrapper = styled.div`
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  ${Mobile({ padding: "10px 0px" })}
+`;
+
+const Left = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+`;
+
+const Language = styled.span`
+  font-size: 14px;
+  cursor: pointer;
+  ${Mobile({ display: "none" })}
+`;
+
+const SearchContainer = styled.div`
+  border: 0.5px solid lightgray;
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  padding: 5px;
+`;
+
 const Input = styled.input`
-    border: none;
-    ${Mobile({width: "50px"})}
-`
-const Right = styled.div`
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    ${Mobile({flex: 2, justifyContent: "center"})}
+  border: none;
+  ${Mobile({ width: "50px" })}
 `;
+
 const Center = styled.div`
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  flex: 1;
+  text-align: center;
 `;
+
 const Logo = styled.h1`
-    font-weight: bold;
-    ${Mobile({fontSize: "14px"})}
-`
-const MenuOptions = styled.div`
-    font-size: 15px;
-    cursor: pointer;
-    margin-left: 24px;
-    ${Mobile({fontSize: "12px", marginLeft:"10px"})}
-`
+  font-weight: bold;
+  ${Mobile({ fontSize: "24px" })}
+`;
+const Right = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  ${Mobile({ flex: 2, justifyContent: "center" })}
+`;
+
+const MenuItem = styled.div`
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 25px;
+  ${Mobile({ fontSize: "12px", marginLeft: "10px" })}
+`;
 
 const Navbar = () => {
-    return (
-        <Container>
-            <Wrapper>
-                <Left>
-                    <Language>EN</Language>
-                    <SearchContainer>
-                        <Input placeholder="Search"/>
-                        <SearchIcon style={{color:"gray", fontsize:17}}/>
-                    </SearchContainer>
-                </Left>
-                <Center>
-                    <SportsVolleyballOutlinedIcon fontSize="large"/>
-                    <Logo>Everything Volleyball</Logo>
-                </Center>
-                <Right>
-                    <MenuOptions>Register</MenuOptions>
-                    <MenuOptions>Login</MenuOptions>
-                    <MenuOptions>
-                        <Badge badgeContent={1} color="primary">
-                            <ShoppingCartOutlinedIcon />
-                        </Badge>
-                    </MenuOptions>
-                </Right>
-            </Wrapper>
-        </Container>
-    )
-}
+  const quantity = useSelector(state=>state.cart.quantity)
+  return (
+    <Container>
+      <Wrapper>
+        <Left>
+          <Language>EN</Language>
+          <SearchContainer>
+            <Input placeholder="Search" />
+            <SearchIcon style={{ color: "gray", fontSize: 16 }} />
+          </SearchContainer>
+        </Left>
+        <Center>
+          <Logo>Everything Volleyball</Logo>
+        </Center>
+        <Right>
+            <Link to="/">
+          <MenuItem>Home</MenuItem>
+          </Link>
+            <Link to="/register">
+          <MenuItem>Register</MenuItem>
+          </Link>
+          <Link to="/login">
+          <MenuItem>Login</MenuItem>
+          </Link>
+          <Link to="/cart">
+          <MenuItem>
+            <Badge badgeContent={quantity} color="primary">
+              <ShoppingCartOutlinedIcon />
+            </Badge>
+          </MenuItem>
+          </Link>
+        </Right>
+      </Wrapper>
+    </Container>
+  );
+};
 
-export default Navbar
+export default Navbar;

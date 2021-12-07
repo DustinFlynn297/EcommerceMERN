@@ -41,18 +41,18 @@ const Button = styled.button`
 
 
 
-const DepartmentItem = ({item}) => {
+const CategoryItem = ({ item }) => {
     return (
-        <Container>
-            <Link to={`/products/${item.category}`}>
-            <Image src={item.img}/>
-            <Info>
-                <Title>{item.title}</Title>
-                <Button>Shop Now</Button>
-            </Info>
-            </Link>
-        </Container>
-    )
-}
+      <Container>
+        <Link to={`/products/${item.category}`}>
+        <Image src={item.img} />
+        <Info>
+          <Title>{item.title}</Title>
+          <Button>SHOP NOW</Button>
+        </Info>
+        </Link>
+      </Container>
+    );
+  };
 
-export default DepartmentItem
+export default CategoryItem

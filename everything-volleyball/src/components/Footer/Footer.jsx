@@ -78,7 +78,7 @@ const Footer = () => {
                 <Description>Our passion for volleyball has driven us to create a place where all volleyball athletes can find the apparel and equipment they need to bring their A-game. A portion of our proceeds goes to helping fund high schools across the U.S. that currently don't have the funding for a volleyball team.                    
                 </Description>
                 <SocialContainer>
-                    <SocialIcon color="#3b5999df"><FacebookIcon/></SocialIcon>
+                    <SocialIcon color="#3b5999df"><FacebookIcon /></SocialIcon>
                     <SocialIcon color="#E4405F"><InstagramIcon/></SocialIcon>
                     <SocialIcon color="#55ACEE"><TwitterIcon/></SocialIcon>
                 </SocialContainer>

@@ -1,9 +1,9 @@
 import React from 'react'
-import Broadcast from '../../components/Broadcast/Broadcast'
-import Bulletin from '../../components/Bulletin/Bulletin'
-import Department from '../../components/Department/Department'
+import Announcement from '../../components/Announcement/Announcement'
+import Newsletter from '../../components/Newsletter/Newsletter'
+import Categories from '../../components/Categories/Categories'
 import Footer from '../../components/Footer/Footer'
-import Merchandise from '../../components/Merchandise/Merchandise'
+import Products from '../../components/Products/Products'
 import Navbar from '../../components/Navbar/Navbar'
 import Scroll from '../../components/Scroll/Scroll'
 
@@ -13,12 +13,12 @@ import Scroll from '../../components/Scroll/Scroll'
 const Home = () => {
     return (
         <div>
-            <Broadcast />
+            <Announcement />
             <Navbar />
             <Scroll />
-            <Department />
-            <Merchandise />
-            <Bulletin />
+            <Categories />
+            <Products />
+            <Newsletter />
             <Footer />
         </div>
     )

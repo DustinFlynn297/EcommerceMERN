@@ -21,7 +21,7 @@ export const ScrollItems = [
         bg: "fbf0f4"  
     }
 ];
- export const Categories = [
+ export const category = [
      {
         id: 1,
         img: "https://i.imgur.com/cq9Qj8l.jpg",

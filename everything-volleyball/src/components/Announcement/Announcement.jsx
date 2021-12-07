@@ -14,7 +14,7 @@ const Container = styled.div`
     ${Mobile({width: "100%"})}
 `
 
-const Broadcast = () => {
+const Announcement = () => {
     return (
         <Container>
             Free Shipping on Orders Over $49!
@@ -22,4 +22,4 @@ const Broadcast = () => {
     )
 }
 
-export default Broadcast
+export default Announcement

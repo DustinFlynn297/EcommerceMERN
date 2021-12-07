@@ -1,5 +1,8 @@
 import styled from 'styled-components'
+import Navbar from '../../components/Navbar/Navbar'
 import { Mobile } from '../../responsive'
+
+
 
 const Container = styled.div`
     width: 100vw;
@@ -46,7 +49,9 @@ const Button = styled.button`
 
 const Register = () => {
     return (
-        <Container>
+        <div>
+        <Navbar/>
+        <Container>          
             <Wrapper>
                 <Title>Create Account</Title>
                 <Form>
@@ -66,6 +71,7 @@ const Register = () => {
                 </Form>
             </Wrapper>
         </Container>
+        </div>
     )
 }
 
